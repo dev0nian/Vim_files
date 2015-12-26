@@ -47,7 +47,6 @@ let g:netrw_liststyle=0
 
 "Custom mappings {{{
 "====================
-
 "Toggle folds
 nnoremap <space> za
 "Clear search
@@ -99,6 +98,8 @@ augroup filetype_cpp
 	autocmd FileType cpp nnoremap <buffer> <localleader>c I//<esc>
 	"Abbreviation for shared_ptr
 	autocmd FileType cpp iabbrev s_ptr std::shared_ptr
+	"Remove trailing whitespace
+	autocmd BufWritePre *.cpp :silent! %s/\s\+$//
 augroup END
 "}}}
 
