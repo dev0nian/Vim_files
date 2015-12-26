@@ -23,6 +23,7 @@ filetype plugin indent on    " required
 set tabstop=4
 set shiftwidth=4
 set smartindent
+set textwidth=120
 set cursorline
 set number
 set hlsearch
@@ -38,7 +39,13 @@ set winaltkeys=yes
 set backspace=indent,eol,start
 "set guifont=Consolas:h11
 set background=dark
-colorscheme solarized 
+"Solarized doesn't do well in terminal. Set koehler there
+if has("gui_macvim")
+	colorscheme solarized 
+else
+	colorscheme koehler
+endif
+
 filetype on
 filetype plugin on
 let g:netrw_banner=0
@@ -49,6 +56,8 @@ let g:netrw_liststyle=0
 "====================
 "Toggle folds
 nnoremap <space> za
+"Toggle folds recursively
+nnoremap <c-space> zA
 "Clear search
 cnoremap cls let @/=""
 
@@ -99,7 +108,7 @@ augroup filetype_cpp
 	"Abbreviation for shared_ptr
 	autocmd FileType cpp iabbrev s_ptr std::shared_ptr
 	"Remove trailing whitespace
-	autocmd BufWritePre *.cpp :silent! %s/\s\+$//
+	autocmd BufWritePre *.cpp,*.h :silent! %s/\s\+$//<cr>
 augroup END
 "}}}
 
