@@ -1,4 +1,25 @@
-set nocompatible
+"Vundle boilerplate {{{
+set nocompatible              " be iMproved, required
+filetype off                  " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+" let Vundle manage Vundle, required
+"}}}
+"Plugins {{{
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+"}}}
+" More Vundle boilerplate {{{
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+"}}}
+
+"Custom settings {{{
+"===================
 set tabstop=4
 set shiftwidth=4
 set smartindent
@@ -8,28 +29,29 @@ set hlsearch
 set ignorecase
 set incsearch
 set autochdir
-colorscheme koehler 
 set wildmenu
 set syntax=on
 set clipboard=unnamed
 set ruler
 set relativenumber
-
-filetype on
-filetype plugin on
-
 set winaltkeys=yes
 set backspace=indent,eol,start
-
 "set guifont=Consolas:h11
-
-"let g:netrw_menu=0
+set background=dark
+colorscheme solarized 
+filetype on
+filetype plugin on
 let g:netrw_banner=0
-let g:netrw_liststyle=3
-let g:netrw_winsize=30
+let g:netrw_liststyle=0
+"}}}
+
+"Custom mappings {{{
+"====================
 
 "Toggle folds
 nnoremap <space> za
+"Clear search
+cnoremap cls let @/=""
 
 let mapleader = "-"
 "Open vimrc in a new vertical split
@@ -41,9 +63,10 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 "store the current search term in temp so that it can be restored after
 "running substitute command
 nnoremap -= :let temp=@/<cr>Vyp:s/./=/g<cr>:let @/=temp<cr>
+"}}}
 
+"surround word with quotes/braces {{{
 let mapleader = "cs"
-"surround word with quotes/braces -------------------- {{{
 nnoremap <leader>" viW<esc>a"<esc>Bi"<esc>f"
 nnoremap <leader>( viW<esc>a)<esc>Bi(<esc>f)
 nnoremap <leader>) viW<esc>a)<esc>Bi(<esc>f)
@@ -53,7 +76,7 @@ nnoremap <leader>[ viW<esc>a]<esc>Bi[<esc>f]
 nnoremap <leader>] viW<esc>a]<esc>Bi[<esc>f]
 "}}}
 
-"surround selected text with quotes/braces -------------------- {{{
+"surround selected text with quotes/braces {{{
 vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
 vnoremap <leader>( <esc>`<i(<esc>`>la)<esc>
 vnoremap <leader>) <esc>`<i(<esc>`>la)<esc>
@@ -63,13 +86,13 @@ vnoremap <leader>[ <esc>`<i[<esc>`>la]<esc>
 vnoremap <leader>] <esc>`<i[<esc>`>la]<esc>
 "}}}
 
-"run cygwin commands from vim
+"run cygwin commands from vim {{{
 "set shell=C:\cygwin64\bin\bash.exe\ -login
 "set shellcmdflag=-c
 "set shellquote=\"
+"}}}
 
-let localleader = "\\"
-"CPP filetype autocmds -------------------- {{{
+"CPP filetype autocmds {{{
 augroup filetype_cpp
 	autocmd!
 	"Comment shortcut
@@ -79,7 +102,7 @@ augroup filetype_cpp
 augroup END
 "}}}
 
-" Vim filetype autocmds ------------------- {{{
+" Vim filetype autocmds {{{
 augroup filetype_vim
 	autocmd!
 	"Folding in vim files
