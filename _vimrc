@@ -37,7 +37,11 @@ set ruler
 set relativenumber
 set winaltkeys=yes
 set backspace=indent,eol,start
-"set guifont=Consolas:h11
+if has("gui_macvim")
+	set guifont=Monaco:h11
+else
+	set guifont=Consolas:h11
+endif
 set background=dark
 "Solarized doesn't do well in terminal. Set koehler there
 if has("gui_macvim")
@@ -113,7 +117,6 @@ augroup filetype_cpp
 	autocmd FileType cpp iabbrev <buffer> { {<esc>o}<esc>kA
 augroup END
 "}}}
-
 " Vim filetype autocmds {{{
 augroup filetype_vim
 	autocmd!
@@ -121,5 +124,6 @@ augroup filetype_vim
 	autocmd FileType vim setlocal foldmethod=marker
 	"automatically add endfunction to vim functions
 	autocmd FileType vim iabbrev <buffer> function function<esc>oendfunction<esc>kA
+	autocmd FileType vim iabbrev <buffer> if if<esc>oendif<esc>kA
 augroup END
 " }}}
