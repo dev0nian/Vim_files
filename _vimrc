@@ -26,6 +26,7 @@ set smartindent
 set textwidth=120
 set cursorline
 set number
+set relativenumber
 set hlsearch
 set ignorecase
 set incsearch
@@ -34,7 +35,6 @@ set wildmenu
 set syntax=on
 set clipboard=unnamed
 set ruler
-set relativenumber
 set winaltkeys=yes
 set backspace=indent,eol,start
 if has("gui_macvim")
@@ -60,8 +60,10 @@ let g:netrw_liststyle=0
 "====================
 "Toggle folds
 nnoremap <space> za
-"Toggle folds recursively
-nnoremap <c-space> zA
+"Close all folds
+nnoremap <c-space> zM
+"Open all folds
+nnoremap <s-space> zR
 "Clear search
 cnoremap cls let @/=""
 
