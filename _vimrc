@@ -106,9 +106,11 @@ augroup filetype_cpp
 	"Comment shortcut
 	autocmd FileType cpp nnoremap <buffer> <localleader>c I//<esc>
 	"Abbreviation for shared_ptr
-	autocmd FileType cpp iabbrev s_ptr std::shared_ptr
+	autocmd FileType cpp iabbrev <buffer> s_ptr std::shared_ptr
 	"Remove trailing whitespace
 	autocmd BufWritePre *.cpp,*.h :silent! %s/\s\+$//<cr>
+	"Automatically add closing braces
+	autocmd FileType cpp iabbrev <buffer> { {<esc>o}<esc>kA
 augroup END
 "}}}
 
@@ -117,5 +119,7 @@ augroup filetype_vim
 	autocmd!
 	"Folding in vim files
 	autocmd FileType vim setlocal foldmethod=marker
+	"automatically add endfunction to vim functions
+	autocmd FileType vim iabbrev <buffer> function function<esc>oendfunction<esc>kA
 augroup END
 " }}}
