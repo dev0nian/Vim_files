@@ -2,8 +2,13 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+if has("gui_macvim") || has("unix")
+	set rtp+=~/.vim/bundle/Vundle.vim
+	call vundle#begin('$HOME/.vim/bundle/')
+elseif has("gui_running")
+	set rtp+=~/vimfiles/bundle/Vundle.vim
+	call vundle#begin('$HOME/vimfiles/bundle/')
+endif
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 " let Vundle manage Vundle, required
@@ -32,7 +37,7 @@ set ignorecase
 set incsearch
 set autochdir
 set wildmenu
-set syntax=on
+syntax on
 set clipboard=unnamed
 set ruler
 set winaltkeys=yes
@@ -40,12 +45,14 @@ set backspace=indent,eol,start
 if has("gui_macvim")
 	set guifont=Monaco:h11
 else
-	set guifont=Consolas:h11
+	set guifont=Consolas:h11,Courier\ New:h10
 endif
 set background=dark
 "Solarized doesn't do well in terminal. Set koehler there
 if has("gui_macvim")
 	colorscheme solarized 
+elseif has("gui_running")
+	colorscheme solarized
 else
 	colorscheme koehler
 endif
