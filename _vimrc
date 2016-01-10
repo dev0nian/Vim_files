@@ -73,6 +73,9 @@ nnoremap <c-space> zM
 nnoremap <s-space> zR
 "Clear search
 cnoremap cls let @/=""
+"search occurrences of selected text
+vnoremap * l<esc>`<y`>/<c-r>0<cr>
+vnoremap # l<esc>`<y`>?<c-r>0<cr>
 
 let mapleader = "-"
 "Open vimrc in a new vertical split
