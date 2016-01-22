@@ -74,7 +74,7 @@ nnoremap <s-space> zR
 "Clear search
 cnoremap cls let @/=""
 
-let mapleader = "-"
+let mapleader = "_"
 "Open vimrc in a new vertical split
 nnoremap <leader>ev :vsp $MYVIMRC<cr>
 "source vimrc
@@ -83,7 +83,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 "add == sequence to the bottom of a line
 "store the current search term in temp so that it can be restored after
 "running substitute command
-nnoremap -= :let temp=@/<cr>Vyp:s/./=/g<cr>:let @/=temp<cr>
+nnoremap <leader>= :let temp=@/<cr>Vyp:s/./=/g<cr>:let @/=temp<cr>
 "}}}
 
 "surround word with quotes/braces {{{
