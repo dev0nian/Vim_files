@@ -16,6 +16,7 @@ endif
 "Plugins {{{
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'goonzoid/vim-reprocessed'
 "}}}
 " More Vundle boilerplate {{{
 " All of your Plugins must be added before the following line
@@ -61,6 +62,10 @@ filetype on
 filetype plugin on
 let g:netrw_banner=0
 let g:netrw_liststyle=0
+
+"set backup
+"set backupdir=C:\Users\Dev\AppData\Local\Temp\
+"set dir=C:\Users\Dev\AppData\Local\Temp\
 "}}}
 
 "Custom mappings {{{
@@ -87,27 +92,6 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 "store the current search term in temp so that it can be restored after
 "running substitute command
 nnoremap <leader>= :let temp=@/<cr>Vyp:s/./=/g<cr>:let @/=temp<cr>
-"}}}
-
-"surround word with quotes/braces {{{
-let mapleader = "cs"
-nnoremap <leader>" viW<esc>a"<esc>Bi"<esc>f"
-nnoremap <leader>( viW<esc>a)<esc>Bi(<esc>f)
-nnoremap <leader>) viW<esc>a)<esc>Bi(<esc>f)
-nnoremap <leader>{ viW<esc>a}<esc>Bi{<esc>f}
-nnoremap <leader>} viW<esc>a}<esc>Bi{<esc>f}
-nnoremap <leader>[ viW<esc>a]<esc>Bi[<esc>f]
-nnoremap <leader>] viW<esc>a]<esc>Bi[<esc>f]
-"}}}
-
-"surround selected text with quotes/braces {{{
-vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
-vnoremap <leader>( <esc>`<i(<esc>`>la)<esc>
-vnoremap <leader>) <esc>`<i(<esc>`>la)<esc>
-vnoremap <leader>{ <esc>`<i{<esc>`>la}<esc>
-vnoremap <leader>} <esc>`<i{<esc>`>la}<esc>
-vnoremap <leader>[ <esc>`<i[<esc>`>la]<esc>
-vnoremap <leader>] <esc>`<i[<esc>`>la]<esc>
 "}}}
 
 "run cygwin commands from vim {{{
