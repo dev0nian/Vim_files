@@ -17,6 +17,7 @@ endif
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'goonzoid/vim-reprocessed'
+Plugin 'ctrlpvim/ctrlp.vim'
 "}}}
 " More Vundle boilerplate {{{
 " All of your Plugins must be added before the following line
