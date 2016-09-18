@@ -16,6 +16,7 @@ endif
 "Plugins {{{
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-surround'
 Plugin 'goonzoid/vim-reprocessed'
 Plugin 'ctrlpvim/ctrlp.vim'
 "}}}
@@ -28,6 +29,7 @@ filetype plugin indent on    " required
 "Custom settings {{{
 "===================
 set tabstop=4
+set noexpandtab
 set shiftwidth=4
 set smartindent
 set textwidth=120
@@ -58,6 +60,9 @@ elseif has("gui_running")
 else
 	colorscheme koehler
 endif
+" Remove top menu/tool bars
+set guioptions-=m
+set guioptions-=T
 
 filetype on
 filetype plugin on
@@ -101,8 +106,10 @@ nnoremap <leader>= :let temp=@/<cr>Vyp:s/./=/g<cr>:let @/=temp<cr>
 "set shellquote=\"
 "}}}
 
+let mapleader = "_"
 "CPP filetype autocmds {{{
 augroup filetype_cpp
+	"Clears autocmd with same group name. Sourcing this multiple times won't cause weirdness
 	autocmd!
 	"Comment shortcut
 	autocmd FileType cpp nnoremap <buffer> <localleader>c I//<esc>
