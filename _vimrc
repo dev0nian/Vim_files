@@ -16,6 +16,7 @@ endif
 "Plugins {{{
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'jacoborus/tender.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'goonzoid/vim-reprocessed'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -54,9 +55,9 @@ endif
 set background=dark
 "Solarized doesn't do well in terminal. Set koehler there
 if has("gui_macvim")
-	colorscheme solarized 
+	colorscheme tender 
 elseif has("gui_running")
-	colorscheme solarized
+	colorscheme tender
 else
 	colorscheme koehler
 endif
