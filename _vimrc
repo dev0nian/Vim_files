@@ -47,6 +47,8 @@ set clipboard=unnamed
 set ruler
 set winaltkeys=yes
 set backspace=indent,eol,start
+"Always show status line
+set laststatus=2
 if has("gui_macvim")
 	set guifont=Monaco:h11
 else
@@ -69,6 +71,10 @@ filetype on
 filetype plugin on
 let g:netrw_banner=0
 let g:netrw_liststyle=0
+
+" ctrl p settings
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_open_new_file = 'v'
 
 "set backup
 "set backupdir=C:\Users\Dev\AppData\Local\Temp\
