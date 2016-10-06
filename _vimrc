@@ -114,6 +114,7 @@ nnoremap <leader>= :let temp=@/<cr>Vyp:s/./=/g<cr>:let @/=temp<cr>
 "}}}
 
 let mapleader = "_"
+let maplocalleader = "|"
 "CPP filetype autocmds {{{
 augroup filetype_cpp
 	"Clears autocmd with same group name. Sourcing this multiple times won't cause weirdness
@@ -128,6 +129,28 @@ augroup filetype_cpp
 	autocmd FileType cpp iabbrev <buffer> { {<esc>o}<esc>kA
 augroup END
 "}}}
+
+"js filetype autocmds {{{
+augroup filetype_js
+	autocmd!
+	autocmd BufRead,BufNew *.ejs set filetype=javascript
+	autocmd FileType javascript set ts=2 sw=2 expandtab
+	autocmd FileType html inoremap <buffer> " ""<esc>i
+	autocmd FileType html inoremap <buffer> ( ()<esc>i
+augroup END
+"}}}
+
+"html filetype_html {{{
+augroup filetype_html
+	autocmd!
+	autocmd FileType html set ts=2 sw=2 expandtab
+	autocmd FileType html nnoremap <buffer> <leader>/ $F<v%yo<esc>pF<a/<esc>==O
+	autocmd FileType html inoremap <buffer> < <><esc>i
+	autocmd FileType html inoremap <buffer> " ""<esc>i
+	autocmd FileType html inoremap <buffer> ( ()<esc>i
+augroup END
+"}}}
+
 " Vim filetype autocmds {{{
 augroup filetype_vim
 	autocmd!
