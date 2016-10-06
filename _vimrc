@@ -94,6 +94,9 @@ cnoremap cls let @/=""
 "search occurrences of selected text
 vnoremap * l<esc>`<y`>/<c-r>0<cr>
 vnoremap # l<esc>`<y`>?<c-r>0<cr>
+"Easy esc in insert mode
+inoremap jj <esc>
+inoremap <esc> <nop>
 
 let mapleader = "_"
 "Open vimrc in a new vertical split
