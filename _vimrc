@@ -135,6 +135,7 @@ augroup filetype_js
 	autocmd!
 	autocmd BufRead,BufNew *.ejs set filetype=javascript
 	autocmd FileType javascript set ts=2 sw=2 expandtab
+	autocmd FileType javascript nnoremap <buffer> <leader>z f{<s-v>%zf
 	autocmd FileType html inoremap <buffer> " ""<esc>i
 	autocmd FileType html inoremap <buffer> ( ()<esc>i
 augroup END
