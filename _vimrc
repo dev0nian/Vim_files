@@ -137,17 +137,17 @@ augroup END
 augroup filetype_js
 	autocmd!
 	autocmd BufRead,BufNew *.ejs set filetype=javascript
-	autocmd FileType javascript set ts=2 sw=2 expandtab
+	autocmd FileType javascript setlocal ts=2 sw=2 expandtab
 	autocmd FileType javascript nnoremap <buffer> <leader>z f{<s-v>%zf
-	autocmd FileType html inoremap <buffer> " ""<esc>i
-	autocmd FileType html inoremap <buffer> ( ()<esc>i
+	autocmd FileType javascript inoremap <buffer> " ""<esc>i
+	autocmd FileType javascript inoremap <buffer> ( ()<esc>i
 augroup END
 "}}}
 
 "html filetype_html {{{
 augroup filetype_html
 	autocmd!
-	autocmd FileType html set ts=2 sw=2 expandtab
+	autocmd FileType html setlocal ts=2 sw=2 expandtab
 	autocmd FileType html nnoremap <buffer> <leader>/ $F<v%yo<esc>pF<a/<esc>==O
 	autocmd FileType html inoremap <buffer> < <><esc>i
 	autocmd FileType html inoremap <buffer> " ""<esc>i
@@ -161,7 +161,7 @@ augroup filetype_vim
 	"Folding in vim files
 	autocmd FileType vim setlocal foldmethod=marker
 	"automatically add endfunction to vim functions
-	autocmd FileType vim iabbrev <buffer> function function<esc>oendfunction<esc>kA
-	autocmd FileType vim iabbrev <buffer> if if<esc>oendif<esc>kA
+	autocmd FileType vim iabbrev <buffer> function functionjjoendfunctionjjkA
+	autocmd FileType vim iabbrev <buffer> if ifjjoendifjjkA
 augroup END
 " }}}
