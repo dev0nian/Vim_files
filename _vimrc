@@ -68,7 +68,7 @@ set guioptions-=m
 set guioptions-=T
 
 filetype on
-filetype plugin on
+filetype plugin indent on
 let g:netrw_banner=0
 let g:netrw_liststyle=0
 
@@ -141,6 +141,7 @@ augroup filetype_js
 	autocmd FileType javascript nnoremap <buffer> <leader>z f{<s-v>%zf
 	autocmd FileType javascript inoremap <buffer> " ""<esc>i
 	autocmd FileType javascript inoremap <buffer> ( ()<esc>i
+	autocmd Filetype javascript inoremap <buffer> { {<esc>o}<esc>O
 augroup END
 "}}}
 
