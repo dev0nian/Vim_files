@@ -142,6 +142,7 @@ augroup filetype_js
 	autocmd FileType javascript inoremap <buffer> " ""<esc>i
 	autocmd FileType javascript inoremap <buffer> ( ()<esc>i
 	autocmd Filetype javascript inoremap <buffer> { {<esc>o}<esc>O
+	autocmd FileType javascript let @z="/functionjvi{jzf"
 augroup END
 "}}}
 
