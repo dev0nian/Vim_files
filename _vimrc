@@ -18,7 +18,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jacoborus/tender.vim'
 Plugin 'tpope/vim-surround'
-Plugin 'goonzoid/vim-reprocessed'
 Plugin 'ctrlpvim/ctrlp.vim'
 "}}}
 " More Vundle boilerplate {{{
