@@ -135,7 +135,7 @@ augroup END
 "js filetype autocmds {{{
 augroup filetype_js
 	autocmd!
-	autocmd BufRead,BufNew *.ejs set filetype=javascript
+	autocmd BufRead,BufNew *.ejs setlocal filetype=javascript
 	autocmd FileType javascript setlocal ts=2 sw=2 expandtab
 	autocmd FileType javascript nnoremap <buffer> <leader>z f{<s-v>%zf
 	autocmd FileType javascript inoremap <buffer> " ""<esc>i
