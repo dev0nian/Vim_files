@@ -19,6 +19,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'jacoborus/tender.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/syntastic'
 "}}}
 " More Vundle boilerplate {{{
 " All of your Plugins must be added before the following line
@@ -74,6 +75,15 @@ let g:netrw_liststyle=0
 " ctrl p settings
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_open_new_file = 'v'
+
+" Syntastic settings
+set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 0
+"let g:syntastic_auto_loc_list = 0
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
 "set backup
 "set backupdir=C:\Users\Dev\AppData\Local\Temp\
