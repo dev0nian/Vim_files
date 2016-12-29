@@ -41,6 +41,7 @@ set hlsearch
 set ignorecase
 set incsearch
 set autochdir
+set autoread
 set wildmenu
 syntax on
 set clipboard=unnamed
@@ -85,9 +86,9 @@ set statusline+=%#warningmsg#
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
 
-"set backup
-"set backupdir=C:\Users\Dev\AppData\Local\Temp\
-"set dir=C:\Users\Dev\AppData\Local\Temp\
+set backup
+set backupdir=$TEMP,.
+set directory=$TEMP,.
 "}}}
 
 "Custom mappings {{{
@@ -138,7 +139,7 @@ augroup filetype_cpp
 	"Remove trailing whitespace
 	autocmd BufWritePre *.cpp,*.h :silent! %s/\s\+$//<cr>
 	"Automatically add closing braces
-	autocmd FileType cpp iabbrev <buffer> { {<esc>o}<esc>kA
+	autocmd Filetype cpp inoremap <buffer> { {<CR>}<esc>O
 augroup END
 "}}}
 
