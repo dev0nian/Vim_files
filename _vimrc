@@ -140,6 +140,8 @@ augroup filetype_cpp
 	autocmd BufWritePre *.cpp,*.h :silent! %s/\s\+$//<cr>
 	"Automatically add closing braces
 	autocmd Filetype cpp inoremap <buffer> { {<CR>}<esc>O
+	"Automatically add closing quotes
+	autocmd FileType javascript inoremap <buffer> " ""<esc>i
 	"Fold all curly braces
 	autocmd FileType cpp let @z="/{V%zfzaj"
 augroup END
