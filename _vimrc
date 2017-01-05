@@ -141,7 +141,7 @@ augroup filetype_cpp
 	"Automatically add closing braces
 	autocmd Filetype cpp inoremap <buffer> { {<CR>}<esc>O
 	"Automatically add closing quotes
-	autocmd FileType javascript inoremap <buffer> " ""<esc>i
+	autocmd FileType cpp inoremap <buffer> " ""<esc>i
 	"Fold all curly braces
 	autocmd FileType cpp let @z="/{V%zfzaj"
 augroup END
