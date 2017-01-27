@@ -29,6 +29,7 @@ filetype plugin indent on    " required
 
 "Custom settings {{{
 "===================
+set nowrap
 set tabstop=4
 set noexpandtab
 set shiftwidth=4
@@ -114,6 +115,9 @@ nnoremap <leader>ev :vsp $MYVIMRC<cr>
 "source vimrc
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+nnoremap <leader>? :set fdo-=search<cr>
+nnoremap <leader>/ :set fdo+=search<cr>
+
 "add == sequence to the bottom of a line
 "store the current search term in temp so that it can be restored after
 "running substitute command
@@ -143,7 +147,7 @@ augroup filetype_cpp
 	"Automatically add closing quotes
 	autocmd FileType cpp inoremap <buffer> " ""<esc>i
 	"Fold all curly braces
-	autocmd FileType cpp let @z="/{V%zfzaj"
+	autocmd FileType cpp let @z="/%€kb€kb€kb€kb::/{V%zfzaj"
 augroup END
 "}}}
 
