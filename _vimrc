@@ -146,8 +146,9 @@ augroup filetype_cpp
 	autocmd Filetype cpp inoremap <buffer> { {<CR>}<esc>O
 	"Automatically add closing quotes
 	autocmd FileType cpp inoremap <buffer> " ""<esc>i
-	"Fold all curly braces
-	autocmd FileType cpp let @z="/%€kb€kb€kb€kb::/{V%zfzaj"
+	"Fold all curly braces associated with member functions
+	autocmd FileType cpp let @x="/%€kb€kb€kb€kb::/{V%zfzaj"
+	autocmd FileType cpp let @z="gg:set nowrapscan100@x"
 augroup END
 "}}}
 
@@ -185,4 +186,10 @@ augroup filetype_vim
 	autocmd FileType vim iabbrev <buffer> function functionjjoendfunctionjjkA
 	autocmd FileType vim iabbrev <buffer> if ifjjoendifjjkA
 augroup END
+" }}}
+
+" Custom variables {{{
+" Shortcuts to open frequently used directories
+let DIR = "path/to/directory"
+cabbrev DIR exec ":e ".DIR
 " }}}
