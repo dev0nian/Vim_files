@@ -20,6 +20,7 @@ Plugin 'jacoborus/tender.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'vim-airline/vim-airline'
 "}}}
 " More Vundle boilerplate {{{
 " All of your Plugins must be added before the following line
@@ -48,6 +49,7 @@ syntax on
 set clipboard=unnamed
 set ruler
 set winaltkeys=yes
+set textwidth=180
 set backspace=indent,eol,start
 "Always show status line
 set laststatus=2
@@ -100,6 +102,9 @@ nnoremap <space> za
 nnoremap <c-space> zM
 "Open all folds
 nnoremap <s-space> zR
+"Move tabs left or right
+nnoremap <F3> :tabmove -1<CR>
+nnoremap <F4> :tabmove +1<CR>
 "Clear search
 cnoremap cls let @/=""
 "search occurrences of selected text
@@ -159,13 +164,27 @@ augroup filetype_js
 	autocmd FileType javascript setlocal ts=2 sw=2 expandtab
 	autocmd FileType javascript nnoremap <buffer> <leader>z f{<s-v>%zf
 	autocmd FileType javascript inoremap <buffer> " ""<esc>i
-	autocmd FileType javascript inoremap <buffer> ( ()<esc>i
 	autocmd FileType javascript inoremap <buffer> [ []<esc>i
 	autocmd Filetype javascript inoremap <buffer> { {<CR>}<esc>O
 	autocmd FileType javascript let @z="/functionj0vi{jzfza"
 augroup END
 "}}}
 
+"xml filetype autocmds {{{
+augroup filetype_xml
+	autocmd!
+	autocmd BufRead,BufNew *.xml setlocal filetype=xml
+	autocmd FileType xml setlocal ts=2 sw=2 expandtab
+augroup END
+"}}}
+
+"css filetype autocmds {{{
+augroup filetype_css
+	autocmd!
+	autocmd BufRead,BufNew *.scss setlocal filetype=css
+	autocmd FileType css setlocal ts=2 sw=2 expandtab
+augroup END
+"}}}
 "html filetype_html {{{
 augroup filetype_html
 	autocmd!
@@ -173,7 +192,6 @@ augroup filetype_html
 	autocmd FileType html nnoremap <buffer> <leader>/ $F<v%yo<esc>pF<a/<esc>==O
 	autocmd FileType html inoremap <buffer> < <><esc>i
 	autocmd FileType html inoremap <buffer> " ""<esc>i
-	autocmd FileType html inoremap <buffer> ( ()<esc>i
 augroup END
 "}}}
 
