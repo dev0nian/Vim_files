@@ -162,6 +162,7 @@ augroup filetype_js
 	autocmd!
 	autocmd BufRead,BufNew *.ejs setlocal filetype=javascript
 	autocmd FileType javascript setlocal ts=2 sw=2 expandtab
+	autocmd FileType javascript setlocal foldmethod=indent foldnestmax=3
 	autocmd FileType javascript nnoremap <buffer> <leader>z f{<s-v>%zf
 	autocmd FileType javascript inoremap <buffer> " ""<esc>i
 	autocmd FileType javascript inoremap <buffer> [ []<esc>i
@@ -189,6 +190,7 @@ augroup END
 augroup filetype_html
 	autocmd!
 	autocmd FileType html setlocal ts=2 sw=2 expandtab
+	autocmd FileType html setlocal foldmethod=indent
 	autocmd FileType html nnoremap <buffer> <leader>/ $F<v%yo<esc>pF<a/<esc>==O
 	autocmd FileType html inoremap <buffer> < <><esc>i
 	autocmd FileType html inoremap <buffer> " ""<esc>i
