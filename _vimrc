@@ -19,7 +19,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'jacoborus/tender.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/syntastic'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'vim-airline/vim-airline'
 "}}}
 " More Vundle boilerplate {{{
@@ -61,7 +61,7 @@ endif
 set background=dark
 "Solarized doesn't do well in terminal. Set koehler there
 if has("gui_macvim")
-	colorscheme tender 
+	colorscheme tender
 elseif has("gui_running")
 	colorscheme tender
 else
@@ -148,12 +148,21 @@ augroup filetype_cpp
 	"Remove trailing whitespace
 	autocmd BufWritePre *.cpp,*.h :silent! %s/\s\+$//<cr>
 	"Automatically add closing braces
-	autocmd Filetype cpp inoremap <buffer> { {<CR>}<esc>O
+	"autocmd Filetype cpp inoremap <buffer> { {<CR>}<esc>O
 	"Automatically add closing quotes
-	autocmd FileType cpp inoremap <buffer> " ""<esc>i
-	"Fold all curly braces associated with member functions
-	autocmd FileType cpp let @x="/%€kb€kb€kb€kb::/{V%zfzaj"
-	autocmd FileType cpp let @z="gg:set nowrapscan100@x"
+	"autocmd FileType cpp inoremap <buffer> " ""<esc>i
+	autocmd FileType cpp setlocal foldmethod=indent foldnestmax=3
+augroup END
+"}}}
+
+"lisp filetype autocmds {{{
+augroup filetype_lisp
+	"Clears autocmd with same group name. Sourcing this multiple times won't cause weirdness
+	autocmd!
+	"Remove trailing whitespace
+	autocmd BufWritePre *.lisp :silent! %s/\s\+$//<cr>
+	"Folding method is indentation
+	autocmd FileType lisp setlocal foldmethod=indent foldnestmax=3
 augroup END
 "}}}
 
@@ -164,9 +173,9 @@ augroup filetype_js
 	autocmd FileType javascript setlocal ts=2 sw=2 expandtab
 	autocmd FileType javascript setlocal foldmethod=indent foldnestmax=3
 	autocmd FileType javascript nnoremap <buffer> <leader>z f{<s-v>%zf
-	autocmd FileType javascript inoremap <buffer> " ""<esc>i
-	autocmd FileType javascript inoremap <buffer> [ []<esc>i
-	autocmd Filetype javascript inoremap <buffer> { {<CR>}<esc>O
+	"autocmd FileType javascript inoremap <buffer> " ""<esc>i
+	"autocmd FileType javascript inoremap <buffer> [ []<esc>i
+	"autocmd Filetype javascript inoremap <buffer> { {}<esc>ha
 	autocmd FileType javascript let @z="/functionj0vi{jzfza"
 augroup END
 "}}}
@@ -186,14 +195,15 @@ augroup filetype_css
 	autocmd FileType css setlocal ts=2 sw=2 expandtab
 augroup END
 "}}}
+
 "html filetype_html {{{
 augroup filetype_html
 	autocmd!
 	autocmd FileType html setlocal ts=2 sw=2 expandtab
 	autocmd FileType html setlocal foldmethod=indent
 	autocmd FileType html nnoremap <buffer> <leader>/ $F<v%yo<esc>pF<a/<esc>==O
-	autocmd FileType html inoremap <buffer> < <><esc>i
-	autocmd FileType html inoremap <buffer> " ""<esc>i
+	"autocmd FileType html inoremap <buffer> < <><esc>i
+	"autocmd FileType html inoremap <buffer> " ""<esc>i
 augroup END
 "}}}
 
