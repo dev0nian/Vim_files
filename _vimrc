@@ -111,8 +111,11 @@ cnoremap cls let @/=""
 vnoremap * l<esc>`<y`>/<c-r>0<cr>
 vnoremap # l<esc>`<y`>?<c-r>0<cr>
 "Easy esc in insert mode
-inoremap jj <esc>
+inoremap <s-CR> <esc>
 inoremap <esc> <nop>
+"center screen on searching for next/prev occurrence
+nnoremap n nzz
+nnoremap N Nzz
 
 let mapleader = "_"
 "Open vimrc in a new vertical split
@@ -173,10 +176,6 @@ augroup filetype_js
 	autocmd FileType javascript setlocal ts=2 sw=2 expandtab
 	autocmd FileType javascript setlocal foldmethod=indent foldnestmax=3
 	autocmd FileType javascript nnoremap <buffer> <leader>z f{<s-v>%zf
-	"autocmd FileType javascript inoremap <buffer> " ""<esc>i
-	"autocmd FileType javascript inoremap <buffer> [ []<esc>i
-	"autocmd Filetype javascript inoremap <buffer> { {}<esc>ha
-	autocmd FileType javascript let @z="/functionj0vi{jzfza"
 augroup END
 "}}}
 
@@ -185,6 +184,16 @@ augroup filetype_xml
 	autocmd!
 	autocmd BufRead,BufNew *.xml setlocal filetype=xml
 	autocmd FileType xml setlocal ts=2 sw=2 expandtab
+augroup END
+"}}}
+
+"Ruby filetype autocmds {{{
+augroup filetype_rb
+	autocmd!
+	autocmd BufRead,BufNew *.rb setlocal filetype=ruby
+	autocmd BufRead,BufNew *.erb setlocal filetype=eruby
+	autocmd FileType ruby setlocal ts=2 sw=2 expandtab
+	autocmd FileType eruby setlocal ts=2 sw=2 expandtab
 augroup END
 "}}}
 
@@ -202,8 +211,6 @@ augroup filetype_html
 	autocmd FileType html setlocal ts=2 sw=2 expandtab
 	autocmd FileType html setlocal foldmethod=indent
 	autocmd FileType html nnoremap <buffer> <leader>/ $F<v%yo<esc>pF<a/<esc>==O
-	"autocmd FileType html inoremap <buffer> < <><esc>i
-	"autocmd FileType html inoremap <buffer> " ""<esc>i
 augroup END
 "}}}
 
