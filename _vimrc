@@ -15,12 +15,12 @@ endif
 "}}}
 "Plugins {{{
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'jacoborus/tender.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'vim-airline/vim-airline'
+Plugin 'kien/rainbow_parentheses.vim'
 "}}}
 " More Vundle boilerplate {{{
 " All of your Plugins must be added before the following line
@@ -59,7 +59,6 @@ else
 	set guifont=Consolas:h11,Courier\ New:h10
 endif
 set background=dark
-"Solarized doesn't do well in terminal. Set koehler there
 if has("gui_macvim")
 	colorscheme tender
 elseif has("gui_running")
@@ -113,9 +112,6 @@ vnoremap # l<esc>`<y`>?<c-r>0<cr>
 "Easy esc in insert mode
 inoremap <s-CR> <esc>
 inoremap <esc> <nop>
-"center screen on searching for next/prev occurrence
-nnoremap n nzz
-nnoremap N Nzz
 
 let mapleader = "_"
 "Open vimrc in a new vertical split
@@ -162,10 +158,13 @@ augroup END
 augroup filetype_lisp
 	"Clears autocmd with same group name. Sourcing this multiple times won't cause weirdness
 	autocmd!
+	autocmd FileType lisp setlocal ts=2 sw=2 expandtab
 	"Remove trailing whitespace
 	autocmd BufWritePre *.lisp :silent! %s/\s\+$//<cr>
 	"Folding method is indentation
 	autocmd FileType lisp setlocal foldmethod=indent foldnestmax=3
+	"Modified auto-pairs (used in auto-pair Plugin)
+	autocmd FileType lisp let b:AutoPairs = {'(':')', '[':']', '{':'}','"':'"', '`':'`'}
 augroup END
 "}}}
 
