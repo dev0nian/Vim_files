@@ -69,6 +69,8 @@ endif
 " Remove top menu/tool bars
 set guioptions-=m
 set guioptions-=T
+"Disable all bells cause they are annoying
+set belloff=all
 
 filetype on
 filetype plugin indent on
@@ -106,12 +108,12 @@ nnoremap <F3> :tabmove -1<CR>
 nnoremap <F4> :tabmove +1<CR>
 "Clear search
 cnoremap cls let @/=""
+nnoremap <CR> :nohl<CR>
 "search occurrences of selected text
 vnoremap * l<esc>`<y`>/<c-r>0<cr>
 vnoremap # l<esc>`<y`>?<c-r>0<cr>
 "Easy esc in insert mode
 inoremap <s-CR> <esc>
-inoremap <esc> <nop>
 
 let mapleader = "_"
 "Open vimrc in a new vertical split
@@ -151,6 +153,20 @@ augroup filetype_cpp
 	"Automatically add closing quotes
 	"autocmd FileType cpp inoremap <buffer> " ""<esc>i
 	autocmd FileType cpp setlocal foldmethod=indent foldnestmax=3
+augroup END
+"}}}
+
+"Java filetype autocmds {{{
+augroup filetype_java
+	"Clears autocmd with same group name. Sourcing this multiple times won't cause weirdness
+	autocmd!
+	"Remove trailing whitespace
+	autocmd BufWritePre *.java :silent! %s/\s\+$//<cr>
+	autocmd FileType java setlocal expandtab
+	"Automatically add closing quotes
+	autocmd FileType java inoremap <buffer> " ""<esc>i
+	"Set fold method to indent
+	autocmd FileType java setlocal foldmethod=indent foldnestmax=3
 augroup END
 "}}}
 
