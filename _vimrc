@@ -123,6 +123,8 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 nnoremap <leader>? :set fdo-=search<cr>
 nnoremap <leader>/ :set fdo+=search<cr>
+"Save file with sudo
+"ca w!! w !sudo tee >/dev/null "%"
 
 "add == sequence to the bottom of a line
 "store the current search term in temp so that it can be restored after
