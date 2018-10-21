@@ -51,6 +51,7 @@ set ruler
 set winaltkeys=yes
 set textwidth=180
 set backspace=indent,eol,start
+set nrformats=bin,octal,hex,alpha
 "Always show status line
 set laststatus=2
 if has("gui_macvim")
@@ -193,6 +194,18 @@ augroup filetype_js
 	autocmd FileType javascript setlocal ts=2 sw=2 expandtab
 	autocmd FileType javascript setlocal foldmethod=indent foldnestmax=3
 	autocmd FileType javascript nnoremap <buffer> <leader>z f{<s-v>%zf
+augroup END
+"}}}
+
+"racket filetype autocmds {{{
+augroup filetype_racket
+	autocmd!
+	autocmd FileType scheme setlocal ts=2 sw=2 expandtab
+	autocmd FileType scheme setlocal foldmethod=indent foldnestmax=3
+	"Modified auto-pairs (used in auto-pair Plugin)
+	autocmd FileType scheme let b:AutoPairs = {'(':')', '[':']', '{':'}','"':'"', '`':'`'}
+	"Remove trailing whitespace
+	autocmd BufWritePre *.rkt :silent! %s/\s\+$//<cr>
 augroup END
 "}}}
 
