@@ -109,7 +109,6 @@ nnoremap <F3> :tabmove -1<CR>
 nnoremap <F4> :tabmove +1<CR>
 "Clear search
 cnoremap cls let @/=""
-nnoremap <CR> :nohl<CR>
 "search occurrences of selected text
 vnoremap * l<esc>`<y`>/<c-r>0<cr>
 vnoremap # l<esc>`<y`>?<c-r>0<cr>
@@ -191,9 +190,13 @@ augroup END
 augroup filetype_js
 	autocmd!
 	autocmd BufRead,BufNew *.ejs setlocal filetype=javascript
+	autocmd BufRead,BufNew *.ts setlocal filetype=javascript
 	autocmd FileType javascript setlocal ts=2 sw=2 expandtab
 	autocmd FileType javascript setlocal foldmethod=indent foldnestmax=3
 	autocmd FileType javascript nnoremap <buffer> <leader>z f{<s-v>%zf
+	autocmd FileType javascript let g:ctrlp_custom_ignore = {
+									\ 'dir':  'node_modules$'
+								\ }
 augroup END
 "}}}
 
