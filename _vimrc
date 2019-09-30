@@ -81,6 +81,9 @@ let g:netrw_liststyle=0
 " ctrl p settings
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_open_new_file = 'v'
+let g:ctrlp_custom_ignore = {
+			\ 'dir':  'node_modules$'
+			\ }
 
 " Syntastic settings
 set statusline+=%#warningmsg#
@@ -220,6 +223,13 @@ augroup filetype_xml
 augroup END
 "}}}
 
+"json filetype autocmds {{{
+augroup filetype_json
+	autocmd!
+	autocmd FileType json setlocal ts=2 sw=2 noexpandtab
+augroup END
+
+"}}}
 "Ruby filetype autocmds {{{
 augroup filetype_rb
 	autocmd!
