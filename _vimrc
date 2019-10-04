@@ -20,7 +20,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'vim-airline/vim-airline'
-Plugin 'kien/rainbow_parentheses.vim'
 "}}}
 " More Vundle boilerplate {{{
 " All of your Plugins must be added before the following line
@@ -95,8 +94,8 @@ set statusline+=%#warningmsg#
 "let g:syntastic_check_on_wq = 0
 
 set backup
-set backupdir=$TEMP,.
-set directory=$TEMP,.
+set backupdir=/tmp/vim_bak,.
+set directory=/tmp/vim_bak,.
 "}}}
 
 "Custom mappings {{{
@@ -192,8 +191,8 @@ augroup END
 "js filetype autocmds {{{
 augroup filetype_js
 	autocmd!
-	autocmd BufRead,BufNew *.ejs setlocal filetype=javascript
-	autocmd BufRead,BufNew *.ts setlocal filetype=javascript
+	autocmd BufRead,BufNew *.ejs,*.ts setlocal filetype=javascript
+	autocmd BufWritePre *.ejs,*.ts,*.js :silent! %s/\s\+$//<cr>
 	autocmd FileType javascript setlocal ts=2 sw=2 expandtab
 	autocmd FileType javascript setlocal foldmethod=indent foldnestmax=3
 	autocmd FileType javascript nnoremap <buffer> <leader>z f{<s-v>%zf
