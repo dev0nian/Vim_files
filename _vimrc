@@ -1,32 +1,11 @@
-"Vundle boilerplate {{{
-set nocompatible              " be iMproved, required
-filetype off                  " required
-" set the runtime path to include Vundle and initialize
-if has("gui_macvim") || has("unix")
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin('$HOME/.vim/bundle/')
-elseif has("gui_running")
-    set rtp+=~/vimfiles/bundle/Vundle.vim
-    call vundle#begin('$HOME/vimfiles/bundle/')
+"Set wsl as the shell on windows instead of cmd.exe
+"Change to cmd.exe before running :diffthis
+if has("windows")
+    set shell=C:\Windows\Sysnative\wsl.exe
+    set shellpipe=|
+    set shellredir=>
+    set shellcmdflag=
 endif
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-" let Vundle manage Vundle, required
-"}}}
-"Plugins {{{
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'jacoborus/tender.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'vim-airline/vim-airline'
-"
-"}}}
-" More Vundle boilerplate {{{
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-"}}}
 
 "Custom settings {{{
 "===================
