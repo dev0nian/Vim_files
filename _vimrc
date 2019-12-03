@@ -21,7 +21,7 @@ set number
 set relativenumber
 set hlsearch
 set hidden
-set ignorecase
+set smartcase
 set incsearch
 set autochdir
 set autoread
