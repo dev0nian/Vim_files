@@ -42,9 +42,9 @@ else
 endif
 set background=dark
 if has("gui_macvim")
-  colorscheme tender
+  colorscheme synthwave84
 elseif has("gui_running")
-  colorscheme tender
+  colorscheme synthwave84
 else
   colorscheme koehler
 endif
