@@ -67,8 +67,8 @@ let g:ctrlp_custom_ignore = {
       \ }
 
 set backup
-set backupdir=/tmp/vim_bak,.
-set directory=/tmp/vim_bak,.
+set backupdir=/Users/devnarayan/Documents/vim_bak,.
+set directory=/Users/devnarayan/Documents/vim_bak,.
 "}}}
 
 "Custom mappings {{{
