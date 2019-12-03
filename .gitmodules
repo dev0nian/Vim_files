@@ -1,0 +1,15 @@
+[submodule "my-plugins/start/airline"]
+	path = my-plugins/start/airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "my-plugins/start/auto-pairs"]
+	path = my-plugins/start/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git
+[submodule "my-plugins/start/ctrlp"]
+	path = my-plugins/start/ctrlp
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "my-plugins/start/surround"]
+	path = my-plugins/start/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "my-plugins/opt/rainbow-paren"]
+	path = my-plugins/opt/rainbow-paren
+	url = https://github.com/luochen1990/rainbow.git
