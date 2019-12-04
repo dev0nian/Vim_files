@@ -23,12 +23,14 @@ set hlsearch
 set hidden
 set smartcase
 set incsearch
-set autochdir
+"set autochdir
 set autoread
 set wildmenu
 syntax on
 set clipboard=unnamed
 set ruler
+"Consider hypenated words as one
+set iskeyword+=-
 set winaltkeys=yes
 set textwidth=180
 set backspace=indent,eol,start
@@ -110,6 +112,8 @@ nnoremap <leader>r *Ncgn
 "running substitute command
 nnoremap <leader>= :let temp=@/<cr>Vyp:s/./=/g<cr>:let @/=temp<cr>
 "}}}
+
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 let mapleader = "_"
 let maplocalleader = "|"
