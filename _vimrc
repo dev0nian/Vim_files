@@ -23,6 +23,7 @@ set hlsearch
 set hidden
 set smartcase
 set incsearch
+set scrolloff=1
 "set autochdir
 set autoread
 set wildmenu
@@ -50,9 +51,8 @@ elseif has("gui_running")
 else
   colorscheme koehler
 endif
-" Remove top menu/tool bars
-set guioptions-=m
-set guioptions-=T
+" Remove top menu/tool bars/right and left scroll bars
+set guioptions-=mTrL
 "Disable all bells cause they are annoying
 set belloff=all
 
