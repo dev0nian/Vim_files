@@ -51,8 +51,12 @@ elseif has("gui_running")
 else
   colorscheme koehler
 endif
-" Remove top menu/tool bars/right and left scroll bars
-set guioptions-=mTrL
+" Remove top menu/tool bars
+set guioptions-=m
+set guioptions-=m
+set guioptions-=r
+set guioptions-=L
+set guioptions-=e
 "Disable all bells cause they are annoying
 set belloff=all
 
