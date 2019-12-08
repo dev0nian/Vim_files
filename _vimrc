@@ -22,6 +22,7 @@ set relativenumber
 set hlsearch
 set hidden
 set smartcase
+set ignorecase
 set incsearch
 set scrolloff=1
 "set autochdir
@@ -115,6 +116,7 @@ nnoremap <leader>r *Ncgn
 "store the current search term in temp so that it can be restored after
 "running substitute command
 nnoremap <leader>= :let temp=@/<cr>Vyp:s/./=/g<cr>:let @/=temp<cr>
+"}}}
 
 "Type %% in Ex mode to enter current file's path. This is useful when autochdir is turned off
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
