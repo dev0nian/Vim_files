@@ -1,11 +1,11 @@
 "Set wsl as the shell on windows instead of cmd.exe
 "Change to cmd.exe before running :diffthis
-if has("windows")
-  set shell=C:\Windows\Sysnative\wsl.exe
-  set shellpipe=|
-  set shellredir=>
-  set shellcmdflag=
-endif
+"if has("windows")
+"  set shell=C:\Windows\Sysnative\wsl.exe
+"  set shellpipe=|
+"  set shellredir=>
+"  set shellcmdflag=
+"endif
 
 "Custom settings {{{
 "===================
@@ -52,11 +52,12 @@ elseif has("gui_running")
 else
   colorscheme koehler
 endif
-" Remove top menu/tool bars
+" Remove top menu/tool bars/right and left scroll bars/GUI tabline
+" Need to mention each option separately, doesn't seem to work otherwise
 set guioptions-=m
-set guioptions-=T
 set guioptions-=r
 set guioptions-=L
+set guioptions-=T
 set guioptions-=e
 "Disable all bells cause they are annoying
 set belloff=all
@@ -99,6 +100,8 @@ vnoremap * l<esc>`<y`>/<c-r>0<cr>
 vnoremap # l<esc>`<y`>?<c-r>0<cr>
 "Easy esc in insert mode
 inoremap <s-CR> <esc>
+"Omni-func in insert mode
+inoremap <c-space> <c-x><c-o><c-p>
 
 let mapleader = "_"
 "Open vimrc in a new vertical split
@@ -116,7 +119,6 @@ nnoremap <leader>r *Ncgn
 "store the current search term in temp so that it can be restored after
 "running substitute command
 nnoremap <leader>= :let temp=@/<cr>Vyp:s/./=/g<cr>:let @/=temp<cr>
-"}}}
 
 "Type %% in Ex mode to enter current file's path. This is useful when autochdir is turned off
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
