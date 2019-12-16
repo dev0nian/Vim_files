@@ -24,7 +24,7 @@ set hidden
 set smartcase
 set ignorecase
 set incsearch
-set scrolloff=1
+set scrolloff=10
 "set autochdir
 set autoread
 set wildmenu
@@ -115,11 +115,10 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 "Rename a word then '.' can be used to rename other occurrences
 nnoremap <leader>r *Ncgn
 
-"add == sequence to the bottom of a line
+"add -- sequence to the bottom of a line
 "store the current search term in temp so that it can be restored after
 "running substitute command
-nnoremap <leader>= :let temp=@/<cr>Vyp:s/./=/g<cr>:let @/=temp<cr>
-
+nnoremap <leader>- yypVr-
 "Type %% in Ex mode to enter current file's path. This is useful when autochdir is turned off
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 "}}}
@@ -182,6 +181,16 @@ augroup filetype_js
   autocmd FileType javascript let g:ctrlp_custom_ignore = {
         \ 'dir':  'node_modules$'
         \ }
+augroup END
+"}}}
+
+"python filetype autocmds {{{
+augroup filetype_python
+  autocmd!
+  "Add relevant suffixes so that the 'gf' command can work
+  autocmd FileType python setlocal suffixesadd=.py
+  autocmd FileType python setlocal ts=2 sw=2 sts=2 expandtab
+  autocmd FileType python setlocal foldmethod=indent foldnestmax=3
 augroup END
 "}}}
 
