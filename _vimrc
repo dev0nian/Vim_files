@@ -9,6 +9,7 @@
 
 "Custom settings {{{
 "===================
+set rtp+=~/.fzf/
 set nocompatible        " be iMproved, required
 set nowrap
 set tabstop=4
@@ -67,14 +68,7 @@ filetype plugin indent on
 let g:netrw_banner=0
 let g:netrw_liststyle=0
 
-" ctrl p settings
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_open_new_file = 'v'
-let g:ctrlp_custom_ignore = {
-      \ 'dir':  'node_modules$'
-      \ }
-
-set backup
+set nobackup
 set backupdir=/Users/devnarayan/Documents/vim_bak,.
 set directory=/Users/devnarayan/Documents/vim_bak,.
 "}}}
@@ -100,6 +94,7 @@ vnoremap * l<esc>`<y`>/<c-r>0<cr>
 vnoremap # l<esc>`<y`>?<c-r>0<cr>
 "Easy esc in insert mode
 inoremap <s-CR> <esc>
+inoremap fd <esc>
 "Omni-func in insert mode
 inoremap <c-space> <c-x><c-o><c-p>
 
@@ -108,6 +103,11 @@ let mapleader = "_"
 nnoremap <leader>ev :vsp $MYVIMRC<cr>
 "source vimrc
 nnoremap <leader>sv :source $MYVIMRC<cr>
+"Search word under cursor with ripgrep
+nnoremap <leader>s yiw:Rg <C-r>0<cr>
+"Search files in pwd using fzf
+nnoremap <leader>f :Files <cr>
+
 
 "Save file with sudo
 "ca w!! w !sudo tee >/dev/null "%"
@@ -178,9 +178,6 @@ augroup filetype_js
   autocmd FileType javascript setlocal ts=2 sw=2 expandtab
   autocmd FileType javascript setlocal foldmethod=indent foldnestmax=3
   autocmd FileType javascript nnoremap <buffer> <leader>z f{<s-v>%zf
-  autocmd FileType javascript let g:ctrlp_custom_ignore = {
-        \ 'dir':  'node_modules$'
-        \ }
 augroup END
 "}}}
 
